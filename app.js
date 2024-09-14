@@ -1,68 +1,25 @@
+function Questions(question,option1,option2,option3,correctOption){
+    this.Question = question,
+    this.Option1 = option1,
+    this.Option2 = option2,
+    this.Option3 = option3,
+    this.CorrectOption = correctOption
+    
+}
 var questions = [
-    {
-        question: 'Inside which HTML element do we put the JavaScript?',
-        // Incorrect option names
-        option1: 'scprit',  // Typo here
-        option2: 'javascrip', // Typo here
-        option3: 'js',
-        correctOption: 'script',  // Corrected option
-    },
-    {
-        question: 'Where is the correct place to insert a JavaScript?',
-        option1: 'The <head> section',
-        option2: 'The <body> section',
-        option3: 'Both the <head> and "body" section are correct',
-        correctOption: 'The <body> section',
-    },
-    {
-        question: 'What is the correct syntax for referring to an external script called "xxx.js"?',
-        // Incorrect option names
-        option1: 'scripr href="xxx.js"', // Typo here
-        option2: 'scripr name="xxx.js"', // Typo here
-        option3: 'scripr src="xxx.js"',   // Typo here
-        correctOption: 'script src="xxx.js"',  // Corrected option
-    } 
-];
-
-var mainDivVar = document.getElementById('questionBox');
-var nxtBtn = document.getElementById('Next');
-var elemntValue = ""
-var index = 0;
-
-function showQuestions() {
-    if (index < questions.length) {
-        mainDivVar.innerHTML = 
-            `<p>${questions[index].question}</p>
-            <label>
-                <input type="radio" name="options" value="${questions[index].option1}" onclick="getValue(this)" checked>
-                ${questions[index].option1}
-            </label>
-            <label>
-                <input type="radio" name="options" value="${questions[index].option2}" onclick="getValue(this)">
-                ${questions[index].option2}
-            </label>
-            <label>
-                <input type="radio" name="options" value="${questions[index].option3}" onclick="getValue(this)">
-                ${questions[index].option3}
-            </label>`
-        ;
-        index++;
-    } else {
-        mainDivVar.innerHTML = "<p>Quiz completed!</p>";
-    }
+    new Questions("What is the correct way to declare a JavaScript variable?","var carName;","variable carName;","v carName;","var carName;"),
+    new Questions("How do you write 'Hello World' in an alert box?","alertBox('Hello World');","msgBox('Hello World');","alert('Hello World');","alert('Hello World');"),
+    new Questions("How do you create a function in JavaScript?","function myFunction() {}","create myFunction() {}","function:myFunction() {}","function myFunction() {}"),
+    new Questions("How do you call a function named 'myFunction'?","call function myFunction();","myFunction();","call myFunction();","myFunction();"),
+    new Questions("How do you add a comment in JavaScript?","<!-- This is a comment -->","// This is a comment","# This is a comment","// This is a comment"),
+    new Questions("What will document.write('Hello') do in JavaScript?","Display a pop-up alert with 'Hello'"," Write 'Hello' to the HTML document","Log 'Hello' in the console"," Write 'Hello' to the HTML document"),
+    new Questions("How can you detect the browser's name in JavaScript?","navigator.appName","window.browserName","navigator.browser","navigator.appName"),
+    new Questions("Which operator is used to assign a value to a variable?","*","=","-","="),
+    new Questions("How do you find the length of a string in JavaScript?","length(myString);","myString.length;","strlen(myString);","myString.length;"),
+    new Questions("What will the following code return: Boolean(10 > 9)?","false","true","undefined","true")
+]
+for (var i =0;i<questions.length;i++){
+    console.log(questions[i])
 }
 
-function getValue(element) {
-   
-    // console.log(element.value); 
-    elemntValue = element.value;
-    console.log(elemntValue) // Correct way to get the selected value
-    if(elemntValue!= ""){
-        nxtBtn.disabled = false
-        elemntValue += element.value
-    }
-
-}
-
-// Call the function to show the first question
-showQuestions();
+var nxtBtn = document.getElementById('nextBtn')
