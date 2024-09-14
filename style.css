@@ -1,3 +1,14 @@
 body{
-    background-color: #007BFF;
+    background-color: #007BFF !important;
+}
+@font-face {
+    font-family: Poppins;
+    src: url(Fonts/Poppins-Regular.ttf);
+}
+.poppins{
+    font-family: Poppins !important;
+}
+
+.border-shadow{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
