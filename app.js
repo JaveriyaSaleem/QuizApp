@@ -23,3 +23,4 @@ for (var i =0;i<questions.length;i++){
 }
 
 var nxtBtn = document.getElementById('nextBtn')
+console.log(nxtBtn)
