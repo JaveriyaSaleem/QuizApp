@@ -38,8 +38,11 @@ valueContainer.innerHTML = `   <p class="fs-4 fw-bold">
                          ${questions[0].Option3}
                     </label>
                 </div>`
+
 var elementSave;
 var valueSave = [];
+var addingMarks;
+
 // get radio value 
 function getValue(element){
     elementSave = element.value
@@ -49,18 +52,25 @@ function getValue(element){
 getValue()
 // to store the value of radio 
 function valueGetPlease(){
-    // if (elementSave) {           
+           
         valueSave.push(elementSave); 
         console.log(valueSave);      
-    // } else {
-    //     console.log("No value to save"); 
-    // }
+// for adding Marks 
+addingMarks =0;
+for (var i=0;i<questions.length;i++){
+    if(valueSave[i]==questions[i].CorrectOption){
+       addingMarks += 5;
+    }
+    
+}
+console.log(addingMarks)
 }
 // changing html of code on nxt btn 
 function questionValue(){
     var numberCalling = document.getElementById('numberCall')
     numberCalling.innerHTML = counter+1;  
     //console.log(document.getElementById('numberCall'))
+    if(counter< questions.length){
     valueContainer.innerHTML =
     `                <p class="fs-4 fw-bold">
                     <span class="fs-5" id="numberCall2">${counter+1}.</span> ${questions[counter].Question}
@@ -79,7 +89,10 @@ function questionValue(){
                          ${questions[counter].Option3}
                     </label>
                 </div>`
-
+    }
+   else{
+        alert("Your Score is "+addingMarks)
+    }
 
    counter++
 }
