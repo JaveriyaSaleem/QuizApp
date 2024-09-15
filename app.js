@@ -18,9 +18,31 @@ var questions = [
     new Questions("How do you find the length of a string in JavaScript?","length(myString);","myString.length;","strlen(myString);","myString.length;"),
     new Questions("What will the following code return: Boolean(10 > 9)?","false","true","undefined","true")
 ]
-for (var i =0;i<questions.length;i++){
-    console.log(questions[i])
+var counter = 0;
+var valueContainer = document.getElementById('valueCon')
+function questionValue(){
+    valueContainer.innerHTML =
+    `                <p class="fs-4 fw-bold">
+                    <span class="fs-5">.</span> ${questions[counter].Question}
+                </p>
+                <div class="row d-flex flex-column p-2 f-6">
+                    <label class="pb-2">
+                        <input type="radio" name="options" value="${questions[counter].Option1}" onclick="getValue(this)" >
+                        ${questions[counter].Option1}
+                    </label>
+                    <label class="pb-2">
+                        <input type="radio" name="options" value="${questions[counter].Option2}" onclick="getValue(this)" >
+                         ${questions[counter].Option2}
+                    </label>
+                    <label class="">
+                        <input type="radio" name="options" value=" ${questions[counter].Option3}" onclick="getValue(this)" >
+                         ${questions[counter].Option3}
+                    </label>
+                </div>`
+    
+   counter++
 }
+
 
 var nxtBtn = document.getElementById('nextBtn')
 console.log(nxtBtn)
