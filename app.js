@@ -7,6 +7,7 @@ function Questions(question,option1,option2,option3,correctOption){
     
 }
 var questions = [
+    
     new Questions("What is the correct way to declare a JavaScript variable?","var carName;","variable carName;","v carName;","var carName;"),
     new Questions("How do you write 'Hello World' in an alert box?","alertBox('Hello World');","msgBox('Hello World');","alert('Hello World');","alert('Hello World');"),
     new Questions("How do you create a function in JavaScript?","function myFunction() {}","create myFunction() {}","function:myFunction() {}","function myFunction() {}"),
@@ -48,12 +49,12 @@ function getValue(element){
 getValue()
 // to store the value of radio 
 function valueGetPlease(){
-    if (elementSave) {           
+    // if (elementSave) {           
         valueSave.push(elementSave); 
         console.log(valueSave);      
-    } else {
-        console.log("No value to save"); 
-    }
+    // } else {
+    //     console.log("No value to save"); 
+    // }
 }
 // changing html of code on nxt btn 
 function questionValue(){
