@@ -18,12 +18,51 @@ var questions = [
     new Questions("How do you find the length of a string in JavaScript?","length(myString);","myString.length;","strlen(myString);","myString.length;"),
     new Questions("What will the following code return: Boolean(10 > 9)?","false","true","undefined","true")
 ]
-var counter = 0;
+var counter = 1;
 var valueContainer = document.getElementById('valueCon')
+valueContainer.innerHTML = `   <p class="fs-4 fw-bold">
+                    <span class="fs-5">1.</span> ${questions[0].Question}
+                </p>
+                <div class="row d-flex flex-column p-2 f-6">
+                    <label class="pb-2">
+                        <input type="radio" name="options" value="${questions[0].Option1}" onclick="getValue(this)" >
+                        ${questions[0].Option1}
+                    </label>
+                    <label class="pb-2">
+                        <input type="radio" name="options" value="${questions[0].Option2}" onclick="getValue(this)" >
+                         ${questions[0].Option2}
+                    </label>
+                    <label class="">
+                        <input type="radio" name="options" value=" ${questions[0].Option3}" onclick="getValue(this)" >
+                         ${questions[0].Option3}
+                    </label>
+                </div>`
+var elementSave;
+var valueSave = [];
+// get radio value 
+function getValue(element){
+    elementSave = element.value
+    console.log(elementSave)
+    
+}
+getValue()
+// to store the value of radio 
+function valueGetPlease(){
+    if (elementSave) {           
+        valueSave.push(elementSave); 
+        console.log(valueSave);      
+    } else {
+        console.log("No value to save"); 
+    }
+}
+// changing html of code on nxt btn 
 function questionValue(){
+    var numberCalling = document.getElementById('numberCall')
+    numberCalling.innerHTML = counter+1;  
+    //console.log(document.getElementById('numberCall'))
     valueContainer.innerHTML =
     `                <p class="fs-4 fw-bold">
-                    <span class="fs-5">.</span> ${questions[counter].Question}
+                    <span class="fs-5" id="numberCall2">${counter+1}.</span> ${questions[counter].Question}
                 </p>
                 <div class="row d-flex flex-column p-2 f-6">
                     <label class="pb-2">
@@ -35,13 +74,15 @@ function questionValue(){
                          ${questions[counter].Option2}
                     </label>
                     <label class="">
-                        <input type="radio" name="options" value=" ${questions[counter].Option3}" onclick="getValue(this)" >
+                        <input type="radio" name="options" value="${questions[counter].Option3}" onclick="getValue(this)" >
                          ${questions[counter].Option3}
                     </label>
                 </div>`
-    
+
+
    counter++
 }
+
 
 
 var nxtBtn = document.getElementById('nextBtn')
