@@ -1,3 +1,4 @@
+var  btnPrevious = document.getElementById('previousBtn');
 function Questions(question,option1,option2,option3,correctOption){
     this.Question = question,
     this.Option1 = option1,
@@ -97,7 +98,8 @@ function questionValue(){
    counter++
 }
 
+// document.getElementById('previousBtn').addEventListener("click",function(){
 
-
-var nxtBtn = document.getElementById('nextBtn')
-console.log(nxtBtn)
+// })
+// var  btnPrevious = 
+// console.log(btnPrevious)
