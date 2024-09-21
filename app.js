@@ -42,7 +42,9 @@ valueContainer.innerHTML = `   <p class="fs-4 fw-bold">
                 </div>`
 
 
-
+                var nxtButton = document.getElementById('nextBtn')
+                var optionsArr = document.getElementsByName('options');
+var addingMarks=0;
 // changing html of code on nxt btn 
 function questionValue(){
     var numberCalling = document.getElementById('numberCall')
@@ -67,6 +69,32 @@ function questionValue(){
                          ${questions[counter].Option3}
                     </label>
                 </div>`
+                nxtButton.disabled = true;
+                // for (var option of optionsArr){
+                //     console.log(option)
+                //     option.addEventListener("click",function(){
+                //        if(option.checked){
+                //            nxtButton.disabled = false;
+                //            console.log(option.value)
+                //        for(var i=0;i<questions.length;i++){
+                //            if(option.value==questions[i].CorrectOption){
+                //                addingMarks +=5;
+                //                console.log(option.value+" Marks:"+addingMarks)
+                //            }
+                //        }
+                          
+                //        }
+                       
+                //     }
+                // )
+                //     break;
+                //    }
+                optionsArr = document.getElementsByName('options');
+                for (var option of optionsArr) {
+                    option.addEventListener("click", function() {
+                        nxtButton.disabled = false;  // Enable button when an option is selected
+                    });
+                }
     }
    else{
         alert("Your Score is "+addingMarks)
@@ -75,11 +103,25 @@ function questionValue(){
    counter++
 
 }
-  
 
+nxtButton.disabled = true
 
-// document.getElementById('previousBtn').addEventListener("click",function(){
+for (var option of optionsArr){
+ console.log(option)
+ option.addEventListener("click",function(){
+    if(option.checked){
+        nxtButton.disabled = false;
+        console.log(option.value)
+    for(var i=0;i<questions.length;i++){
+        if(option.value==questions[i].CorrectOption){
+            addingMarks +=5;
+            console.log(option.value+" Marks:"+addingMarks)
+        }
+    }
+       
+    }
+    
+ })
+ break;
+}
 
-// })
-// var  btnPrevious = 
-// console.log(btnPrevious)
