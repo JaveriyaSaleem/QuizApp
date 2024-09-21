@@ -1,4 +1,5 @@
 var  btnPrevious = document.getElementById('previousBtn');
+// construction function 
 function Questions(question,option1,option2,option3,correctOption){
     this.Question = question,
     this.Option1 = option1,
@@ -13,7 +14,7 @@ var questions = [
     new Questions("How do you write 'Hello World' in an alert box?","alertBox('Hello World');","msgBox('Hello World');","alert('Hello World');","alert('Hello World');"),
     new Questions("How do you create a function in JavaScript?","function myFunction() {}","create myFunction() {}","function:myFunction() {}","function myFunction() {}"),
     new Questions("How do you call a function named 'myFunction'?","call function myFunction();","myFunction();","call myFunction();","myFunction();"),
-    new Questions("How do you add a comment in JavaScript?","<!-- This is a comment -->","// This is a comment","# This is a comment","// This is a comment"),
+    new Questions("How do you add a comment in JavaScript?","This is a comment -->","// This is a comment","# This is a comment","// This is a comment"),
     new Questions("What will document.write('Hello') do in JavaScript?","Display a pop-up alert with 'Hello'"," Write 'Hello' to the HTML document","Log 'Hello' in the console"," Write 'Hello' to the HTML document"),
     new Questions("How can you detect the browser's name in JavaScript?","navigator.appName","window.browserName","navigator.browser","navigator.appName"),
     new Questions("Which operator is used to assign a value to a variable?","*","=","-","="),
@@ -27,45 +28,21 @@ valueContainer.innerHTML = `   <p class="fs-4 fw-bold">
                 </p>
                 <div class="row d-flex flex-column p-2 f-6">
                     <label class="pb-2">
-                        <input type="radio" name="options" value="${questions[0].Option1}" onclick="getValue(this)" >
+                        <input type="radio" name="options" value="${questions[0].Option1}" >
                         ${questions[0].Option1}
                     </label>
                     <label class="pb-2">
-                        <input type="radio" name="options" value="${questions[0].Option2}" onclick="getValue(this)" >
+                        <input type="radio" name="options" value="${questions[0].Option2}" >
                          ${questions[0].Option2}
                     </label>
                     <label class="">
-                        <input type="radio" name="options" value=" ${questions[0].Option3}" onclick="getValue(this)" >
+                        <input type="radio" name="options" value=" ${questions[0].Option3}" >
                          ${questions[0].Option3}
                     </label>
                 </div>`
 
-var elementSave;
-var valueSave = [];
-var addingMarks;
 
-// get radio value 
-function getValue(element){
-    elementSave = element.value
-    console.log(elementSave)
-    
-}
-getValue()
-// to store the value of radio 
-function valueGetPlease(){
-           
-        valueSave.push(elementSave); 
-        console.log(valueSave);      
-// for adding Marks 
-addingMarks =0;
-for (var i=0;i<questions.length;i++){
-    if(valueSave[i]==questions[i].CorrectOption){
-       addingMarks += 5;
-    }
-    
-}
-console.log(addingMarks)
-}
+
 // changing html of code on nxt btn 
 function questionValue(){
     var numberCalling = document.getElementById('numberCall')
@@ -78,15 +55,15 @@ function questionValue(){
                 </p>
                 <div class="row d-flex flex-column p-2 f-6">
                     <label class="pb-2">
-                        <input type="radio" name="options" value="${questions[counter].Option1}" onclick="getValue(this)" >
+                        <input type="radio" name="options" value="${questions[counter].Option1}" >
                         ${questions[counter].Option1}
                     </label>
                     <label class="pb-2">
-                        <input type="radio" name="options" value="${questions[counter].Option2}" onclick="getValue(this)" >
+                        <input type="radio" name="options" value="${questions[counter].Option2}" >
                          ${questions[counter].Option2}
                     </label>
                     <label class="">
-                        <input type="radio" name="options" value="${questions[counter].Option3}" onclick="getValue(this)" >
+                        <input type="radio" name="options" value="${questions[counter].Option3}" >
                          ${questions[counter].Option3}
                     </label>
                 </div>`
@@ -96,7 +73,10 @@ function questionValue(){
     }
 
    counter++
+
 }
+  
+
 
 // document.getElementById('previousBtn').addEventListener("click",function(){
 
