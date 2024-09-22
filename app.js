@@ -11,14 +11,14 @@ var questions = [
     
     new Questions("What is the correct way to declare a JavaScript variable?","var carName;","variable carName;","v carName;","var carName;"),
     new Questions("How do you write 'Hello World' in an alert box?","alertBox('Hello World');","msgBox('Hello World');","alert('Hello World');","alert('Hello World');"),
-    new Questions("How do you create a function in JavaScript?","function myFunction() {}","create myFunction() {}","function:myFunction() {}","function myFunction() {}"),
-    new Questions("How do you call a function named 'myFunction'?","call function myFunction();","myFunction();","call myFunction();","myFunction();"),
-    new Questions("How do you add a comment in JavaScript?","This is a comment -->","// This is a comment","# This is a comment","// This is a comment"),
-    new Questions("What will document.write('Hello') do in JavaScript?","Display a pop-up alert with 'Hello'"," Write 'Hello' to the HTML document","Log 'Hello' in the console"," Write 'Hello' to the HTML document"),
-    new Questions("How can you detect the browser's name in JavaScript?","navigator.appName","window.browserName","navigator.browser","navigator.appName"),
-    new Questions("Which operator is used to assign a value to a variable?","*","=","-","="),
-    new Questions("How do you find the length of a string in JavaScript?","length(myString);","myString.length;","strlen(myString);","myString.length;"),
-    new Questions("What will the following code return: Boolean(10 > 9)?","false","true","undefined","true")
+    // new Questions("How do you create a function in JavaScript?","function myFunction() {}","create myFunction() {}","function:myFunction() {}","function myFunction() {}"),
+    // new Questions("How do you call a function named 'myFunction'?","call function myFunction();","myFunction();","call myFunction();","myFunction();"),
+    // new Questions("How do you add a comment in JavaScript?","This is a comment -->","// This is a comment","# This is a comment","// This is a comment"),
+    // new Questions("What will document.write('Hello') do in JavaScript?","Display a pop-up alert with 'Hello'"," Write 'Hello' to the HTML document","Log 'Hello' in the console"," Write 'Hello' to the HTML document"),
+    // new Questions("How can you detect the browser's name in JavaScript?","navigator.appName","window.browserName","navigator.browser","navigator.appName"),
+    // new Questions("Which operator is used to assign a value to a variable?","*","=","-","="),
+    // new Questions("How do you find the length of a string in JavaScript?","length(myString);","myString.length;","strlen(myString);","myString.length;"),
+    // new Questions("What will the following code return: Boolean(10 > 9)?","false","true","undefined","true")
 ]
 var counter = 0;
 var valueContainer = document.getElementById('valueCon')
@@ -75,7 +75,17 @@ for (var i = 0; i < optionsArr.length; i++) {
 }
     }
    else{
-        alert("Your Score is "+addingMarks)
+    
+    Swal.fire({
+        title: "Quiz Completed!!",
+        text: "Your Score is "+addingMarks,
+        icon: "success",
+        // showCancelButton: true,
+        // confirmButtonColor: "#3085d6",
+        // cancelButtonColor: "#d33",
+        // confirmButtonText: "Yes, delete it!"
+      })
+        // alert("Your Score is "+addingMarks)
     }
 
    counter++
