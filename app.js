@@ -1,4 +1,3 @@
-var  btnPrevious = document.getElementById('previousBtn');
 // construction function 
 function Questions(question,option1,option2,option3,correctOption){
     this.Question = question,
@@ -21,29 +20,11 @@ var questions = [
     new Questions("How do you find the length of a string in JavaScript?","length(myString);","myString.length;","strlen(myString);","myString.length;"),
     new Questions("What will the following code return: Boolean(10 > 9)?","false","true","undefined","true")
 ]
-var counter = 1;
+var counter = 0;
 var valueContainer = document.getElementById('valueCon')
-valueContainer.innerHTML = `   <p class="fs-4 fw-bold">
-                    <span class="fs-5">1.</span> ${questions[0].Question}
-                </p>
-                <div class="row d-flex flex-column p-2 f-6">
-                    <label class="pb-2">
-                        <input type="radio" name="options" value="${questions[0].Option1}" >
-                        ${questions[0].Option1}
-                    </label>
-                    <label class="pb-2">
-                        <input type="radio" name="options" value="${questions[0].Option2}" >
-                         ${questions[0].Option2}
-                    </label>
-                    <label class="">
-                        <input type="radio" name="options" value=" ${questions[0].Option3}" >
-                         ${questions[0].Option3}
-                    </label>
-                </div>`
-
-
-                var nxtButton = document.getElementById('nextBtn')
-                var optionsArr = document.getElementsByName('options');
+var nxtButton = document.getElementById('nextBtn')
+var optionsArr = document.getElementsByName('options');
+var btnPrevious = document.getElementById('previousBtn');
 var addingMarks=0;
 // changing html of code on nxt btn 
 function questionValue(){
@@ -69,32 +50,29 @@ function questionValue(){
                          ${questions[counter].Option3}
                     </label>
                 </div>`
-                nxtButton.disabled = true;
-                // for (var option of optionsArr){
-                //     console.log(option)
-                //     option.addEventListener("click",function(){
-                //        if(option.checked){
-                //            nxtButton.disabled = false;
-                //            console.log(option.value)
-                //        for(var i=0;i<questions.length;i++){
-                //            if(option.value==questions[i].CorrectOption){
-                //                addingMarks +=5;
-                //                console.log(option.value+" Marks:"+addingMarks)
-                //            }
-                //        }
-                          
-                //        }
-                       
-                //     }
-                // )
-                //     break;
-                //    }
-                optionsArr = document.getElementsByName('options');
-                for (var option of optionsArr) {
-                    option.addEventListener("click", function() {
-                        nxtButton.disabled = false;  // Enable button when an option is selected
-                    });
-                }
+
+nxtButton.disabled = true
+optionsArr = document.getElementsByName('options');
+for (var i = 0; i < optionsArr.length; i++) {
+    optionsArr[i].addEventListener('click', function() {
+        
+        if(this.checked){
+        // console.log("chalgaya yayyyyy"+this.value);
+        nxtButton.disabled = false;
+        for(var j =0;j<questions.length;j++){
+            //  console.log(this.value);
+             if(this.value==questions[j].CorrectOption){
+                 addingMarks +=1;
+                 console.log(addingMarks)
+             }
+            
+        }
+        
+        }
+  
+    });
+   
+}
     }
    else{
         alert("Your Score is "+addingMarks)
@@ -103,25 +81,7 @@ function questionValue(){
    counter++
 
 }
+questionValue()
 
-nxtButton.disabled = true
 
-for (var option of optionsArr){
- console.log(option)
- option.addEventListener("click",function(){
-    if(option.checked){
-        nxtButton.disabled = false;
-        console.log(option.value)
-    for(var i=0;i<questions.length;i++){
-        if(option.value==questions[i].CorrectOption){
-            addingMarks +=5;
-            console.log(option.value+" Marks:"+addingMarks)
-        }
-    }
-       
-    }
-    
- })
- break;
-}
 
